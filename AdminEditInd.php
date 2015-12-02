@@ -105,7 +105,11 @@ session_start();
               echo("</table>");
 
               echo("<div class=\"nextButton\">");
+<<<<<<< HEAD
+              echo("<input type=\"submit\" name=\"next\" class=\"button large go\" value=\"Delete Appointment\">"); //delete boolean stored in pageclick
+=======
               echo("<input type=\"submit\" name=\"next\" class=\"button large go\" value=\"Delete Appointment\">");
+>>>>>>> bcc46b3a4bcc869f0cdd8346d6af601ba231d543
               echo("</div>");
 			  echo("</form>");
 			  echo("<form method=\"link\" action=\"AdminUI.php\">");

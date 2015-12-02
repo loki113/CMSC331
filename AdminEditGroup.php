@@ -72,6 +72,16 @@ $_SESSION["Delete"] = false;
 		echo("</table>");
 
               echo("<div class=\"nextButton\">");
+<<<<<<< HEAD
+			  /* both Delete and Edit go to AdminProcessEditGroup. Delete only needs to because it needs to set Delete as a Session variable
+			  to display "appointment removed" in AdminConfirmEditGroup.
+			  Substitution options for $_SESSION["Delete"] 
+					- $_COOKIE["Delete"]
+					- create a new php page, basically a copy of AdminConfirmEditGroup called AdminConfirmDeleteGroup that only displays
+					the message for the delete. Currently, it is a conditional set in AdminConfirmEditGroup
+					- leave as $_SESSION["Delete"] for lack of a better option*/
+=======
+>>>>>>> bcc46b3a4bcc869f0cdd8346d6af601ba231d543
               echo("<input type=\"submit\" name=\"next\" class=\"button large go\" value=\"Delete Appointment\">");
               echo("<input style=\"margin-left: 10px\" type=\"submit\" name=\"next\" class=\"button large go\" value=\"Edit Appointment\">");
               echo("</div>");

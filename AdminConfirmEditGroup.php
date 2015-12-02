@@ -25,6 +25,10 @@ $debug = false;
         <?php
 	// saves status of session
           $delete = $_SESSION["Delete"];
+<<<<<<< HEAD
+		  //$delete = $_COOKIE["Delete"];
+=======
+>>>>>>> bcc46b3a4bcc869f0cdd8346d6af601ba231d543
           $group = $_SESSION["GroupApp"];
           parse_str($group);
  

@@ -35,13 +35,22 @@ session_start();
         echo "<h3 style='color:red'>Passwords do not match!!</h3>";
       }
     ?>
+<<<<<<< HEAD
+	<!-- <form action="AdminProcessCreateNew.php" method="post" name="Create"> -->
+	<form action="AdminCreateNew.php" method="post" name="Create">
+=======
 		<form action="AdminProcessCreateNew.php" method="post" name="Create">
+>>>>>>> bcc46b3a4bcc869f0cdd8346d6af601ba231d543
 		<div class="field">
 	      		<label for="firstN">First Name</label>
 	      		<input id="firstN" size="20" maxlength="50" type="text" name="firstN" required autofocus>
 	    	</div>
 
+<<<<<<< HEAD
+				<div class="field">
+=======
 	    	<div class="field">
+>>>>>>> bcc46b3a4bcc869f0cdd8346d6af601ba231d543
 	     		<label for="lastN">Last Name</label>
 	      		<input id="lastN" size="20" maxlength="50" type="text" name="lastN" required>
 	   	</div>	
