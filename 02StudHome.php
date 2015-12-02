@@ -1,5 +1,7 @@
 <?php
 session_start();
+include('./CommonMethods.php');
+include('./sqlQueries.php');
 ?>
 
 <html lang="en">
@@ -14,16 +16,33 @@ session_start();
         <div class="top">
 		<h2>Hello 
 		<?php
-			echo $_SESSION["firstN"]; // displays student's name
+			echo getStudentMajor($_SESSION["studID"]); // displays student's name
 		?>
         </h2>
 	    <div class="selections">
 		<!-- links to process student appointment information -->
 		<form action="StudProcessHome.php" method="post" name="Home">
 	    <?php
+			
 			$debug = false;
-			include('./CommonMethods.php');
 			$COMMON = new Common($debug);
+			
+			/* $_SESSION["firstN"] = strtoupper($_POST["firstN"]); // saves student's first name in all caps */
+			/* $_SESSION["lastN"] = strtoupper($_POST["lastN"]); // saves student's last name in all caps */
+			$_SESSION["studID"] = strtoupper($_POST["studID"]); // saves student ID in all caps
+			/* $_SESSION["email"] = $_POST["email"]; // saves student's email */ // Not using a session variable for email anymore, need to save it to database
+			/* $_SESSION["major"] = $_POST["major"]; // saves student's major */ // Not using a session variable for major anymore, need to save it to database
+
+			$firstName = strtoupper($_POST["firstN"]); // saves student's first name in all caps	
+			$lastName = strtoupper($_POST["lastN"]); // saves student's last name in all caps
+			$studid = $_SESSION["studID"]; // saves student ID in all caps
+			$email = $_POST["email"]; // saves student's email 
+			$major = $_POST["major"]; // saves student's major
+
+			if(!studExists($studid)){ // adds student into database if the student is not already listed
+				$sql = "insert into Proj2Students (`FirstName`,`LastName`,`StudentID`,`Email`,`Major`) values ('$firstName','$lastName','$studid','$email','$major')";
+				$rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
+			}
 			
 			$_SESSION["studExist"] = false; // sets that the student has not been added to the database
 			$adminCancel = false;

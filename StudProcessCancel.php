@@ -2,14 +2,15 @@
 session_start();
 $debug = false;
 include('./CommonMethods.php');
+include('./sqlQueries.php');
 $COMMON = new Common($debug);
 
 if($_POST["cancel"] == 'Cancel'){
 	$firstn = $_SESSION["firstN"]; // saves student's first name
 	$lastn = $_SESSION["lastN"]; // saves student's last name
 	$studid = $_SESSION["studID"]; // saves student's ID
-	$major = $_SESSION["major"]; // saves student's major
-	$email = $_SESSION["email"]; // saves student's email
+	$major = getStudentMajor(studid); // saves student's major -- replaced $_SESSION["major"] with getStudentMajor(studid)
+	$email = getStudentEmail(studid); // saves student's email -- replaced $_SESSION["email"] with getStudentEmail(studid)
 	
 	//remove stud from EnrolledID
 	$sql = "select * from Proj2Appointments where `EnrolledID` like '%$studid%'";

@@ -1,7 +1,8 @@
-<?php
+<?phpf
 session_start();
 $debug = false;
 include('./CommonMethods.php');
+include('./sqlQueries.php');
 $COMMON = new Common($debug);
 
 if($_POST["finish"] == 'Cancel'){
@@ -11,17 +12,17 @@ else{
 	$firstn = $_SESSION["firstN"]; // saves student's first name
 	$lastn = $_SESSION["lastN"]; // saves student's last name
 	$studid = $_SESSION["studID"]; // saves student's ID
-	$major = $_SESSION["major"]; // saves student's major
-	$email = $_SESSION["email"]; // saves student's email
+	$major = getStudentMajor(studid); // saves student's major -- replaced $_SESSION["major"] with getStudentMajor(studid)
+	$email = getStudentEmail(studid); // saves student's email -- replaced $_SESSION["email"] with getStudentEmail(studid)
 	$advisor = $_SESSION["advisor"]; // saves student's advisor
 
 	// if(debug) { echo("Advisor -> $advisor<br>\n"); }
 
 	$apptime = $_SESSION["appTime"]; // saves student's appointment time
-	if($_SESSION["studExist"] == false){ // adds student into database if the student is not already listed
+	/* if($_SESSION["studExist"] == false){ // adds student into database if the student is not already listed
 		$sql = "insert into Proj2Students (`FirstName`,`LastName`,`StudentID`,`Email`,`Major`) values ('$firstn','$lastn','$studid','$email','$major')";
 		$rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
-	}
+	} */
 
 
 	// ************************ Lupoli 9-1-2015

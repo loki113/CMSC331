@@ -33,8 +33,8 @@ if (isset($_POST["advisor"])) {
 			$firstn = $_SESSION["firstN"];
 			$lastn = $_SESSION["lastN"];
 			$studid = $_SESSION["studID"];
-			$major = $_SESSION["major"];
-			$email = $_SESSION["email"];
+			$major = getStudentMajor(studid); // replaced $_SESSION["major"] with getStudentMajor(studid)
+			$email = getStudentEmail(studid); // replaced $_SESSION["email"] with getStudentEmail(studid)
 			
 			// if the student wants to reschedule the appointment
 			if($_SESSION["resch"] == true){

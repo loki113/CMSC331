@@ -4,7 +4,7 @@ session_start();
 include('./CommonMethods.php');
 
 $COMMON = new Common($debug);
-$localMaj = $_SESSION["major"]; // saves student major
+$localMaj = getStudentMajor(studid); // saves student major -- replaced $_SESSION["major"] with getStudentMajor(studid)
 if ($localMaj == "Computer Science")
 {
 	$localMaj = "CMSC";
