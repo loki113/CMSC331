@@ -16,7 +16,8 @@ include('./sqlQueries.php');
         <div class="top">
 		<h2>Hello 
 		<?php
-			echo getStudentMajor($_SESSION["studID"]); // displays student's name
+			echo getStudFirstName($_SESSION["studID"]); // displays student's name 
+
 		?>
         </h2>
 	    <div class="selections">
@@ -25,7 +26,10 @@ include('./sqlQueries.php');
 	    <?php
 			
 			$debug = false;
-			$COMMON = new Common($debug);
+
+			//include('./CommonMethods.php'); //already included in sqlQueries.php; no need for it here
+			$COMMON = new Common($debug); //no complaints so i left it alone
+
 			
 			/* $_SESSION["firstN"] = strtoupper($_POST["firstN"]); // saves student's first name in all caps */
 			/* $_SESSION["lastN"] = strtoupper($_POST["lastN"]); // saves student's last name in all caps */
